@@ -22,7 +22,7 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 
 The run_analysis.R script downloads and unzips the project data if necessary and then performs the following analysis.
 
-1. **Prepares the training and test sets separately and then combines the two data sets.**
+Step 1. **Prepares the training and test sets separately and then combines the two data sets.**
 
 * read train/X_train.txt
 * read features.txt and use second column as variable names
@@ -34,17 +34,17 @@ The run_analysis.R script downloads and unzips the project data if necessary and
 * read test/y_test.txt and attach as column of activity values
 * read test/subject.txt and attach as column of subject IDs
 
-2. **Extract the subset of data that corresponds to measurements on the mean and standard deviation.**
+Step 2. **Extract the subset of data that corresponds to measurements on the mean and standard deviation.**
 
 From the 561 measurements, the columns selected were those for which the column name included "mean" or "std" as part of the name. The "angle" column measurements in which gravityMean is part of the name were NOT included. The meanFreq() measurements were included.
 
-3. **Label the activities using descriptive names.**
+Step 3. **Label the activities using descriptive names.**
 
 The activities in the data set were mapped from values 1 to 6 to activities as follows:
 
 1 = walking, 2 = walking_upstairs, 3 = walking_downstairs, 4 = sitting, 5 = standing, 6 = laying
 
-4. **Label the data set with descriptive variable names.**
+Step 4. **Label the data set with descriptive variable names.**
 
 There seems to be no one standard R naming convention, so the conventions used here are:
  
@@ -53,7 +53,7 @@ There seems to be no one standard R naming convention, so the conventions used h
 * change dash to underscore (some people like underscores and some don't; the underscores were kept here to improve readability of the very long variable names)
 * change initial t to time, intial f to freq and bodybody to body
 
-5. **Create an independent tidy data set with the average of each variable for each subject and each activity.**
+Step 5. **Create an independent tidy data set with the average of each variable for each subject and each activity.**
 
 * The tidy data set is written to a file: tidydataset.txt using write.table().
 * Each row of the tidy data set has the subject ID in the first column, the activity in the second column and then the average value (over all of the measurements for that subject and that activity) of each of the 79 measurements.
